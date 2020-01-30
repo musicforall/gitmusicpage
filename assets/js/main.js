@@ -22,8 +22,6 @@
         ],
         xsmall: [null, '480px']
     });
-    // Scrolly.
-    $('.scrolly').scrolly({speed: 1500, offset: $header.outerHeight()});
 
     // Play initial animations on page load.
     $window.on('load', function () {
