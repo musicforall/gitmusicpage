@@ -1,0 +1,26 @@
+/* hero */
+
+body.is-preload #hero h2 {
+    -moz-transform: none;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    opacity: 1;
+}
+
+body.is-preload #hero h2:after,
+body.is-preload #hero h2:before {
+    width: 100%;
+}
+
+body.is-preload #hero .more {
+    -moz-transform: none;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    opacity: 1;
+}
+
+body.is-preload #hero:after {
+    opacity: 0;
+}
