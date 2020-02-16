@@ -1,0 +1,44 @@
+<html>
+<head>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/custom-protocol-check@1.0.4/custom-protocol-check.min.js"></script>
+<script>
+let latestVersion = '1.0.0'
+function checkProtocol(){
+    let urlParams = new URLSearchParams(window.location.search);
+    let customUrl = "ink://collaborate?" + urlParams.toString();
+    customProtocolCheck(
+        customUrl,
+        () => {
+            getProtocol();
+        },
+        () => {
+            console.log("Custom protocol found, redirected to INK", customUrl);
+        }
+    );
+}
+function getProtocol(){ 
+  if(confirm('You do not seem to have INK installed. Would you like to download INK?')){
+    let platform = navigator.platform;
+    switch(platform) {
+        case 'MacIntel':
+        window.location.replace(`https://github.com/ununu-p2p/ink-desktop/releases/download/v${ latestVersion }/ununu.Ink-${ latestVersion }.dmg`);
+        break;
+
+        case 'Win64':
+        window.location.replace(`https://github.com/ununu-p2p/ink-desktop/releases/download/v${ latestVersion }/ununu.Ink.Setup.${ latestVersion }.exe`);
+        break;
+
+        //TODO: Add for linux
+        default:
+        window.alert("The platform is not supported by INK, please try again on a Windows, Mac or Linux system!");
+
+    }
+  }   
+}
+checkProtocol();
+</script>
+<a href="#" onclick="checkProtocol()">Click here if nothing happens...</a>
+</body>
+</html>
