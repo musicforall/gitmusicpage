@@ -1,0 +1,33 @@
+<html>
+  <head></head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/custom-protocol-check@1.0.4/custom-protocol-check.min.js"></script>
+    <script src="/assets/js/download-manager.js"></script>
+    <script>
+      function checkProtocol() {
+        let urlParams = new URLSearchParams(window.location.search);
+        let customUrl = "ununu://collaborate?" + urlParams.toString();
+        customProtocolCheck(
+          customUrl,
+          () => {
+            getProtocol();
+          },
+          () => {
+            console.log("Custom protocol found, redirected to ununu", customUrl);
+          }
+        );
+      }
+      function getProtocol() {
+        if (
+          confirm(
+            "You do not seem to have ununu installed. Would you like to download ununu?"
+          )
+        ) {
+          redirectDownloadInk();
+        }
+      }
+      checkProtocol();
+    </script>
+    <a href="#" onclick="checkProtocol()">Click here if nothing happens...</a>
+  </body>
+</html>
