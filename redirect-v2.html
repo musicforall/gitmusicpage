@@ -13,17 +13,20 @@
             getProtocol();
           },
           () => {
-            console.log("Custom protocol found, redirected to ununu", customUrl);
+            console.log(
+              "Custom protocol found, redirected to ununu",
+              customUrl
+            );
           }
         );
       }
       function getProtocol() {
         if (
           confirm(
-            "You do not seem to have ununu installed. Would you like to download ununu?"
+            "We can't find ununu on your system. Do you want to install ununu now?"
           )
         ) {
-          redirectDownloadInk();
+          downloadRedirect();
         }
       }
       checkProtocol();
