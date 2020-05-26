@@ -1,16 +1,11 @@
-
-function redirectDownloadInk() {
+function downloadRedirect() {
   switch (navigator.platform) {
     case "MacIntel":
-      window.location.replace(
-        `https://storage.googleapis.com/ununu/ununu-latest.dmg`
-      );
+      window.location = "https://ununu.io/download-latest.html";
       break;
 
-    //TODO: Add for windowns and linux
     default:
-      window.alert(
-        "The platform is not supported by INK, please try again on a MacOS system!"
-      );
+      window.location = "https://ununu.io/";
+      break;
   }
 }
